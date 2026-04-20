@@ -1,0 +1,59 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+auto/*
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+/staticfiles/
+
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# Python virtual environments
+ENV/
+env.bak/
+venv.bak/
+
+# Unit test / coverage reports
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# MyPy
+.mypy_cache/
+
+# Pyre
+.pyre/
+
+# Cython debug symbols
+cython_debug/
