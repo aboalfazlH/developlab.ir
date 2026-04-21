@@ -4,9 +4,10 @@ from .models import Account
 
 
 class AccountCreationForm(UserCreationForm):
-    class Meta():
+    class Meta:
         model = Account
         fields = ("username","email","password1","password2")
+
 class AccountChangeForm(UserChangeForm):
     class Meta:
         model = Account

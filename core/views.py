@@ -7,4 +7,4 @@ class MainPageView(TemplateView):
     template_name = "index.html"
 
 class HomeRedirectView(RedirectView):
-    url = reverse_lazy("home")
+    url = reverse_lazy("core:home")
