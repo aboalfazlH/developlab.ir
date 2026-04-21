@@ -8,4 +8,4 @@ class RegisterView(CreateView):
     model = Account
     form_class = AccountCreationForm
     template_name = "auth/register.html"
-    success_url = reverse_lazy("core:home")
+    success_url = reverse_lazy("accounts:login")
