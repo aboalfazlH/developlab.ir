@@ -1,20 +1,24 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سلام</title>
-</head>
-<body>
-<ol>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-</ol>
-    <h1>سلام دنیا!!!</h1>
-    <footer>
-    <a href="{% url 'accounts:register' %}">ثبت نام</a>
-    <a href="{% url 'accounts:login' %}">ورود</a>
-    </footer>
-</body>
-</html>
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block meta %}
+{% endblock meta %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block content %}
+<div class="code">
+<pre dir="ltr">
+<code>
+for i in range(10):
+    print("Hello World!!")
+</code>
+</pre>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

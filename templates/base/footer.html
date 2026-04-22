@@ -1,0 +1,9 @@
+<footer>
+    {% if user.is_authenticated %}
+    <a href="{% url 'accounts:logout' %}">خروج</a>
+    <a href="#">{{ user }}</a>
+    {% else %}
+    <a href="{% url 'accounts:register' %}">ثبت نام</a>
+    <a href="{% url 'accounts:login' %}">ورود</a>
+    {% endif %}
+</footer>

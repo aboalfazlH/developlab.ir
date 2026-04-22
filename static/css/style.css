@@ -8,3 +8,13 @@
     padding: 0;
     font-family: Vazir;
 }
+
+.code {
+    background-color: #030303eb;
+    margin: 3px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: large;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
