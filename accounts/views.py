@@ -4,7 +4,7 @@ from .forms import AccountCreationForm,LoginForm
 from .models import Account
 from django.urls import reverse_lazy
 from django.shortcuts import redirect,render
-from django.contrib.auth import login,authenticate
+from django.contrib.auth import login,logout,authenticate
 
 
 class RegisterView(CreateView):
@@ -59,3 +59,12 @@ class LoginView(FormView):
             message.warning(request, "شما اکنون احراز هویت کردید")
             return redirect(self.success_url)
         return super().dispatch(request, *args, **kwargs)
+
+class LogoutView(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,"auth/logout.html")
+    
+    def post(self,request,*args,**kwargs):
+        logout(request)
+        message.success(request,"خروج موفقیت آمیز بود")
+        return redirect("core:home")
