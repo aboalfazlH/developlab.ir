@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserChangeForm,UserCreationForm
+from django.contrib.auth.forms import UserChangeForm,UserCreationForm,AuthenticationForm,UsernameField
 from .models import Account
 
 
@@ -12,3 +12,14 @@ class AccountChangeForm(UserChangeForm):
     class Meta:
         model = Account
         fields = "__all__"
+
+class LoginForm(forms.Form):
+    username = UsernameField(
+        max_length=150,
+        widget=forms.TextInput(attrs={"placeholder": "نام کاربری"}),
+        label="",
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={"placeholder": "رمز عبور"}),
+        label="",
+    )

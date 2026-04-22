@@ -6,9 +6,15 @@
     <title>سلام</title>
 </head>
 <body>
+<ol>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ol>
     <h1>سلام دنیا!!!</h1>
     <footer>
     <a href="{% url 'accounts:register' %}">ثبت نام</a>
+    <a href="{% url 'accounts:login' %}">ورود</a>
     </footer>
 </body>
 </html>
