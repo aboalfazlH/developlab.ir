@@ -8,25 +8,19 @@
     font-family: Vazir;
 }   
 .header {
-    background-image: linear-gradient(to right,#000000,#303030);
+    background-color: #0f0f10;
 }
 .list *{
     font-size: 20px;
     color: #fcfcfc;
     text-decoration: none;
 }
-
-.code {
-    background-color: #030303eb;
-    margin: 3px;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: large;
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
+.main {
+    background-color: #222529;
+    color: #ffeb3b;
 }
 .footer {
-    background-image: linear-gradient(to right,#212121,#121212);
+    background-color:#0f0f10;
 }
 .footer * {
     color: #ffffff;

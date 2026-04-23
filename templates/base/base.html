@@ -21,7 +21,14 @@
 </head>
 <body>
     {% include "base/header.html" %}
-    <main id="start-contents">
+    <main class="main" id="start-contents">
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
     {% block content %}
     
     {% endblock content %}

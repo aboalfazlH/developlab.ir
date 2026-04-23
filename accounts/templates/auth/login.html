@@ -1,5 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block meta %}
+{% endblock meta %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block content %}
 <form action='' method='post'>
 {% csrf_token %}
 {{ form.as_p }}
 <button type='submit'>تائید</button>
 </form>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

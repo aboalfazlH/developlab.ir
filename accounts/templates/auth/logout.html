@@ -1,4 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block meta %}
+{% endblock meta %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block content %}
 <form action='' method='post'>
 {% csrf_token %}
 <button type='submit'>خروج</button>
 </form>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
