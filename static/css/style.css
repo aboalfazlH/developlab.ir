@@ -5,8 +5,15 @@
 
 * {
     margin: 0;
-    padding: 0;
     font-family: Vazir;
+}   
+.header {
+    background-image: linear-gradient(to right,#000000,#303030);
+}
+.list *{
+    font-size: 20px;
+    color: #fcfcfc;
+    text-decoration: none;
 }
 
 .code {
@@ -17,4 +24,10 @@
     font-size: large;
     color: white;
     font-family: 'Courier New', Courier, monospace;
+}
+.footer {
+    background-image: linear-gradient(to right,#212121,#121212);
+}
+.footer * {
+    color: #ffffff;
 }

@@ -7,12 +7,13 @@
     {% block meta %}
     
     {% endblock meta %}
+
     <title>
     آزمایشگاه توسعه|
     {% block title %}
     {% endblock title %}
     </title>
-    {% comment %} Styles {% endcomment %}
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block styles %}
     
@@ -20,7 +21,7 @@
 </head>
 <body>
     {% include "base/header.html" %}
-    <main>
+    <main id="start-contents">
     {% block content %}
     
     {% endblock content %}

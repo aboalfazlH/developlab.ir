@@ -31,7 +31,8 @@ LOCAL_APPS = [
     'blog',
     'core',
     'q_a',
-    'cart'
+    'cart',
+    'formsaz'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
