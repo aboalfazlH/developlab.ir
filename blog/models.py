@@ -4,10 +4,10 @@ from django.db import models
 class Post(models.Model):
     # Text
     title = models.CharField(verbose_name="موضوع",max_length=200)
-    summary = models.TextField(verbose_name="خلاصه متن")
-    description = models.TextField(verbose_name="متن اصلی")
+    summary = models.TextField(verbose_name="خلاصه متن",blank=True,null=True)
+    description = models.TextField(verbose_name="متن اصلی",blank=True,null=True)
     # Files
-    thumbnail = models.ImageField(verbose_name="تصویر شاخص")
+    thumbnail = models.ImageField(verbose_name="تصویر شاخص",blank=True,null=True)
     # Booleans
     is_active = models.BooleanField(verbose_name="فعال",default=True)
     is_verify = models.BooleanField(verbose_name="مورد تایید",default=False)

@@ -10,13 +10,11 @@
 {% endblock styles %}
 
 {% block content %}
-{% for post in posts %}
-<div>
-{{ post.title }}
-</div>
-{% empty %}
-<h2 style="text-align: center;padding: 10px;">هیچ پستی نداریم</h2>
-{% endfor %}
+<form action='' method='post'>
+{% csrf_token %}
+{{ form.as_p }}
+<button type='submit'>تایید</button>
+</form>
 {% endblock content %}
 
 {% block scripts %}
