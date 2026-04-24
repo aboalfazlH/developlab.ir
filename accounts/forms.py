@@ -1,12 +1,18 @@
 from django import forms
-from django.contrib.auth.forms import UserChangeForm,UserCreationForm,AuthenticationForm,UsernameField
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm, UsernameField
 from .models import Account
 
 
 class AccountCreationForm(UserCreationForm):
     class Meta:
         model = Account
-        fields = ("username","email","password1","password2")
+        fields = (
+            "username",
+            "email",
+            "first_name",
+            "last_name",
+            "password",
+        )
 
 class AccountChangeForm(UserChangeForm):
     class Meta:
@@ -23,3 +29,4 @@ class LoginForm(forms.Form):
         widget=forms.PasswordInput(attrs={"placeholder": "رمز عبور"}),
         label="",
     )
+

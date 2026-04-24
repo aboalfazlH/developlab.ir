@@ -5,9 +5,9 @@
     <ul>
         <li class="list-2"><a href="">وبلاگ</a>
             <ul>
-            <li class="list-3"><a href="">لیست آخرین پست ها</a></li> <!-- TODO -->
+            <li class="list-3"><a href="{% url 'blog:post-list' %}">لیست آخرین پست ها</a></li>
             <li class="list-3"><a href="">داشبورد من</a></li> <!-- TODO -->
-            <li class="list-3"><a href="">نوشتن پست</a></li> <!-- TODO -->
+            <li class="list-3"><a href="{% url 'blog:post-create' %}">نوشتن پست</a></li>
             </ul>
         </li>
     </ul>

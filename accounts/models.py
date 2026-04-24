@@ -18,3 +18,7 @@ class Account(AbstractUser):
         help_text='اجازه کاربران را بدهید',
         related_query_name="user",
     )
+    def __str__(self):
+        if self.get_full_name() == "":
+            return self.username
+        return self.get_full_name()
