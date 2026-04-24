@@ -2,19 +2,19 @@ from django.db import models
 
 
 class Post(models.Model):
-    # متنی
+    # Text
     title = models.CharField(verbose_name="موضوع",max_length=200)
     summary = models.TextField(verbose_name="خلاصه متن")
     description = models.TextField(verbose_name="متن اصلی")
-    # آپلود
+    # Files
     thumbnail = models.ImageField(verbose_name="تصویر شاخص")
-    # بولین ها
+    # Booleans
     is_active = models.BooleanField(verbose_name="فعال",default=True)
     is_verify = models.BooleanField(verbose_name="مورد تایید",default=False)
     is_pin = models.BooleanField(verbose_name="سنجاق شده",default=False)
-    # روابط
+    # Relationships
     author = models.ForeignKey("accounts.Account",on_delete=models.CASCADE)
-    # زمان ها
+    # DateTimes
     write_date = models.DateTimeField(verbose_name="تاریخ نوشتن",auto_now_add=True)
     update_date = models.DateTimeField(verbose_name="تاریخ آخرین تغییر",auto_now=True)
     

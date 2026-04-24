@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block meta %}
+{% endblock meta %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block content %}
+{% for post in posts %}
+{{ post.title }}
+{% empty %}
+<h2 style="text-align: center;padding: 10px;">هیچ پستی نداریم</h2>
+{% endfor %}
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
