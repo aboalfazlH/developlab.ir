@@ -23,7 +23,7 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    
+    'rest_framework'    
 ]
 
 LOCAL_APPS = [
@@ -112,3 +112,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = reverse_lazy("accounts:login")
+
+REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.JSONRenderer",
+    ],
+    'PAGE_SIZE': 10,
+    'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+}

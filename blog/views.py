@@ -4,7 +4,9 @@ from .models import Post
 from .forms import PostForm
 from django.urls import reverse_lazy
 from django.contrib import messages as message
+from rest_framework.generics import ListAPIView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .serializers import PostSerializer
 
 
 class PostListView(ListView):
@@ -44,3 +46,7 @@ class PostUpdateView(LoginRequiredMixin,UpdateView):
     def form_valid(self, form):
         message.success(self.request,"پست تغییر کرد")
         return super().form_valid(form)
+    
+class PostsJsonListView(ListAPIView):
+    queryset = Post.objects.filter(is_active=True)
+    serializer_class = PostSerializer

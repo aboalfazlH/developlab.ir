@@ -1,23 +1,20 @@
 {% extends 'base/base.html' %}
-
+{% load static %}
 {% block title %}
+لیست آخرین مقالات
 {% endblock title %}
 
 {% block meta %}
 {% endblock meta %}
 
 {% block styles %}
+<link rel="stylesheet" href="{% static 'css/blog-list.css' %}">
 {% endblock styles %}
 
 {% block content %}
-{% for post in posts %}
-<div>
-{{ post.title }}
-</div>
-{% empty %}
-<h2 style="text-align: center;padding: 10px;">هیچ پستی نداریم</h2>
-{% endfor %}
+<section id="posts"></section>
 {% endblock content %}
 
 {% block scripts %}
+<script src="{% static 'js/blog-list.js' %}"></script>
 {% endblock scripts %}

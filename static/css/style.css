@@ -6,7 +6,11 @@
 * {
     margin: 0;
     font-family: Vazir;
+    transition: all ease 2s;
 }   
+body {
+    overflow-x: hidden;
+}
 .header {
     background-color: #0f0f10;
 }
