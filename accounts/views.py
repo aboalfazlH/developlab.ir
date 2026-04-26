@@ -5,7 +5,8 @@ from .models import Account
 from django.urls import reverse_lazy
 from django.shortcuts import redirect,render
 from django.contrib.auth import login,logout,authenticate
-
+from rest_framework.generics import RetrieveAPIView
+from .serializer import AccountSerializer
 
 class RegisterView(CreateView):
     model = Account
@@ -29,7 +30,6 @@ class RegisterView(CreateView):
         message.success(self.request,"ثبت نام با موفقیت انجام شد")
 
         return response
-
 
 class LoginView(FormView):
     form_class = LoginForm
@@ -68,3 +68,7 @@ class LogoutView(View):
         logout(request)
         message.success(request,"خروج موفقیت آمیز بود")
         return redirect("core:home")
+    
+class UserRetrieveAPIView(RetrieveAPIView):
+    queryset = Account.objects.filter(is_active=True).order_by("id")
+    serializer_class = AccountSerializer
