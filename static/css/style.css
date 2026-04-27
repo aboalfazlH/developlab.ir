@@ -29,3 +29,8 @@ body {
 .footer * {
     color: #ffffff;
 }
+.not-found {
+    padding: auto;
+    color: red;
+    text-align: center;
+}
