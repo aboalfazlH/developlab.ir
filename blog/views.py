@@ -4,9 +4,10 @@ from .models import Post
 from .forms import PostForm
 from django.urls import reverse_lazy
 from django.contrib import messages as message
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView,RetrieveUpdateDestroyAPIView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .serializers import PostSerializer
+from django.http import HttpRequest
 
 
 class PostListView(ListView):
@@ -51,6 +52,19 @@ class PostDetailView(DetailView):
     model = Post
     template_name = "blog/post-detail.html"
     context_object_name = "post"
+
+class PostDeleteView(View):
+    def get(self,request:HttpRequest,id,*args,**kwargs):
+        return render(request,"blog/post-delete.html")
+
+    def post(self,request:HttpRequest,id,*args,**kwargs):
+        post = Post.objects.get(id=id)
+        if request.user.is_superuser or post.author == request.user:
+            post.delete()
+    def get_context_data(self,id,*args,**kwargs):
+        context = {}
+        context["post"] = Post.objects.get(id=id)
+
     
 class BlogTemplateView(TemplateView):
     template_name = "blog/main.html"

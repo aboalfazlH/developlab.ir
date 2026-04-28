@@ -10,5 +10,6 @@ urlpatterns = [
     path("post/write/",views.PostCreateView.as_view(),name="post-create"),
     path("post/<int:pk>/",views.PostDetailView.as_view(),name="post-detail"),
     path("post/<int:pk>/edit/",views.PostUpdateView.as_view(),name="post-update"),
+    path("post/<int:id>/delete/",views.PostDeleteView.as_view(),name="post-delete"),
     path("api/post-list/",views.PostsJsonListView.as_view(),name="api-post-list"),
 ]
