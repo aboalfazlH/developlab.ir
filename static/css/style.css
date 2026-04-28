@@ -20,6 +20,7 @@ body {
     text-decoration: none;
 }
 .main {
+    padding: 20px;
     background-color: #222529;
     color: #ffeb3b;
 }

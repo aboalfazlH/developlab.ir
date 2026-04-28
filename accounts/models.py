@@ -22,3 +22,8 @@ class Account(AbstractUser):
         if self.get_full_name() == "":
             return self.username
         return self.get_full_name()
+    
+    class Meta:
+        db_table = "accounts"
+        verbose_name = "کاربر"
+        verbose_name_plural = "کاربر ها"

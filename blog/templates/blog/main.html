@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block title %}
+وبلاگ
+{% endblock title %}
+
+{% block meta %}
+{% endblock meta %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/blog-list.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<h2>وبلاگ</h2>
+<section class="containar">
+<h3 class="last-posts">اخرین پست ها:</h3>
+<a class="see-all" href="{% url 'blog:post-list' %}">مشاهده همه پست ها</a>
+<section id="posts">
+</section>
+</section>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'js/blog-list.js' %}"></script>
+{% endblock scripts %}

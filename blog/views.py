@@ -47,6 +47,15 @@ class PostUpdateView(LoginRequiredMixin,UpdateView):
         message.success(self.request,"پست تغییر کرد")
         return super().form_valid(form)
     
+class PostDetailView(DetailView):
+    model = Post
+    template_name = "blog/post-detail.html"
+    context_object_name = "post"
+    
+class BlogTemplateView(TemplateView):
+    template_name = "blog/main.html"
+    
+
 class PostsJsonListView(ListAPIView):
     queryset = Post.objects.filter(is_active=True)
     serializer_class = PostSerializer

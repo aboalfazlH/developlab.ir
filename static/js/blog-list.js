@@ -33,7 +33,7 @@ async function fetchAndDisplayPosts(page = 1) {
         articleElement.appendChild(thumbnailElement);
       }
 
-      const titleElement = document.createElement('h3');
+      const titleElement = document.createElement('h4');
       titleElement.textContent = post.title;
       articleElement.appendChild(titleElement);
 
@@ -72,7 +72,7 @@ async function fetchAndDisplayPosts(page = 1) {
 
   } catch (error) {
     console.error('Error fetching posts:', error);
-    postsSection.innerHTML = '<p>خطا در بارگیری پست‌ها. لطفاً بعداً دوباره تلاش کنید.</p>';
+    console.error('خطا در بارگیری پست‌ها. لطفاً بعداً دوباره تلاش کنید.');
   }
 }
 

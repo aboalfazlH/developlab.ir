@@ -1,7 +1,6 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-ثبت پست جدید
 {% endblock title %}
 
 {% block meta %}
@@ -11,11 +10,11 @@
 {% endblock styles %}
 
 {% block content %}
-<form action='' method='post'>
-{% csrf_token %}
-{{ form.as_p }}
-<button type='submit'>تایید</button>
-</form>
+<h3>{{ post.title }}</h3>
+<span>{{ post.summary }}</span>
+<div>
+{{ post.description }}
+</div>
 {% endblock content %}
 
 {% block scripts %}

@@ -101,3 +101,10 @@ article:last-child {
     margin-bottom: 10px;
     flex-shrink: 0;
 }
+.last-posts {
+    display: inline;
+}
+.containar {
+    display: flex;
+    flex-flow: column wrap;
+}

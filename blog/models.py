@@ -19,9 +19,15 @@ class Post(models.Model):
     update_date = models.DateTimeField(verbose_name="تاریخ آخرین تغییر",auto_now=True)
     
     class Meta:
+        db_table = "posts"
         verbose_name = "پست"
         verbose_name_plural = "پست ها"
         ordering = ["-write_date"]
     
+    def get_absolute_url(self):
+        from django.urls import reverse
+
+        return reverse("blog:post-detail", kwargs={"pk": self.id})
+
     def __str__(self):
         return self.title
