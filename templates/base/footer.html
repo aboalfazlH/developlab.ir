@@ -3,7 +3,7 @@
     <ul class="list">
     {% if user.is_authenticated %}
     <li class="list-1"><a href="{% url 'accounts:logout' %}">خروج</a></li>
-    <li class="list-1"><a href="#">مشاهده پنل کاربری</a></li> 
+    <li class="list-1"><a href="{% url 'accounts:profile' user.username %}">مشاهده پنل کاربری</a></li> 
     {% else %}
     <li class="list-1"><a href="{% url 'accounts:register' %}">ثبت نام</a></li>
     <li class="list-1"><a href="{% url 'accounts:login' %}">ورود</a></li>

@@ -69,6 +69,14 @@ class LogoutView(View):
         message.success(request,"خروج موفقیت آمیز بود")
         return redirect("core:home")
     
+
+class UserDetailView(DetailView):
+    model = Account
+    template_name = "auth/profile.html"
+    context_object_name = "profile"
+    slug_field = "username"
+    slug_url_kwarg = "username"    
+
 class UserRetrieveAPIView(RetrieveAPIView):
     queryset = Account.objects.filter(is_active=True).order_by("id")
     serializer_class = AccountSerializer

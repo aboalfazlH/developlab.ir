@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+پروفایل "{{ profile }}"
+{% endblock title %}
+
+{% block meta %}
+{% endblock meta %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block content %}
+<section class="main-detail">
+    <img id="avatar" src="" alt="">
+    <h3 id="name">{{ profile.get_full_name }}</h3>
+    <span id="username">@{{ profile.username }}</span>
+    <div id="bio">
+    <h4>بیوگرافی:</h4>
+    </div>
+</section>
+<section id="actions">
+    {% if profile == user %}
+    <a href="#">داشبورد</a> <!-- TODO -->
+    {% else %}
+    <a href="#">دنبال کردن</a> <!-- TODO -->
+    {% endif %}
+</section>
+<section id="statistics">
+    <h4>آمار</h4>
+    <ul><!-- TODO --></ul>
+</section>
+<section id="social">
+    <h4>لینک ها</h4>
+    <ul><!-- TODO --></ul>
+</section>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

@@ -1,4 +1,4 @@
-const apiUrlBase = 'http://localhost:3000/blog/api/post-list/';
+const apiUrlBase = `http://${window.location.host}/blog/api/post-list/`;
 const postsSection = document.getElementById('posts');
 const paginationContainer = document.getElementById('pagination');
 
@@ -64,15 +64,26 @@ async function fetchAndDisplayPosts(page = 1) {
         authorElement.textContent = 'نویسنده: نامشخص';
         articleElement.appendChild(authorElement);
       }
-
+      
       postsSection.appendChild(articleElement);
+      articleElement.addEventListener("click",detail_url)
+      function detail_url() {
+        window.location = `http://${window.location.host}/${post.get_absolute_url}`
+      }
+      const SeeElement = document.createElement('a');
+      
+      SeeElement.href = `http://${window.location.host}/${post.get_absolute_url}`
+      SeeElement.innerHTML = "مشاهده پست"
+      console.log(SeeElement);
+      
+      articleElement.appendChild(SeeElement);
     }
+    
 
     createPaginationControls(data, page);
 
   } catch (error) {
     console.error('Error fetching posts:', error);
-    console.error('خطا در بارگیری پست‌ها. لطفاً بعداً دوباره تلاش کنید.');
   }
 }
 
