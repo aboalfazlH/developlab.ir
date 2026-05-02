@@ -1,8 +1,8 @@
 from django.contrib import messages as message
 from django.views.generic import *
-from .forms import AccountCreationForm,LoginForm
+from .forms import AccountCreationForm,LoginForm,ProfileForm
 from .models import Account
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy,reverse
 from django.shortcuts import redirect,render
 from django.contrib.auth import login,logout,authenticate
 from rest_framework.generics import RetrieveAPIView
@@ -75,7 +75,26 @@ class UserDetailView(DetailView):
     template_name = "auth/profile.html"
     context_object_name = "profile"
     slug_field = "username"
-    slug_url_kwarg = "username"    
+    slug_url_kwarg = "username"
+
+class UserUpdateView(UpdateView):
+    model = Account
+    form_class = ProfileForm
+    template_name = "auth/profile-edit.html"
+    context_object_name = "profile"
+    slug_field = "username"
+    slug_url_kwarg = "username"
+
+    def dispatch(self, request, *args, **kwargs):
+        username = self.kwargs.get(self.slug_url_kwarg)
+        if username == request.user.username:
+            return super().dispatch(request, *args, **kwargs)
+        message.error(request,"شما به این حساب کاربری دسترسی ندارید")
+        return redirect("accounts:profile",username)
+    
+    def get_success_url(self):
+        username = self.kwargs.get(self.slug_url_kwarg)
+        return reverse("accounts:profile", kwargs={'username': username})
 
 class UserRetrieveAPIView(RetrieveAPIView):
     queryset = Account.objects.filter(is_active=True).order_by("id")

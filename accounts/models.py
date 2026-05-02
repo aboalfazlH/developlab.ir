@@ -13,6 +13,7 @@ class Account(AbstractUser):
     avatar = models.ImageField(default="avatars/devlab.jpg",upload_to=avatar_upload_path)
     groups = models.ManyToManyField(
         Group,
+        verbose_name="گروه ها",
         related_name="account_set",
         blank=True,
         help_text='گروه بندی کاربران را انجام دهید',
@@ -20,6 +21,7 @@ class Account(AbstractUser):
     )
     user_permissions = models.ManyToManyField(
         Permission,
+        verbose_name="اجازه ها",
         related_name="account_set_permissions",
         blank=True,
         help_text='اجازه کاربران را بدهید',

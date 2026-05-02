@@ -9,5 +9,6 @@ urlpatterns = [
     path("auth/login",views.LoginView.as_view(),name="login"),
     path("auth/logout",views.LogoutView.as_view(),name="logout"),
     path("<str:username>/",views.UserDetailView.as_view(),name="profile"),
+    path("<str:username>/edit/",views.UserUpdateView.as_view(),name="profile-edit"),
     path("api/users/<int:pk>/",views.UserRetrieveAPIView.as_view(),name="detail-api")
 ]

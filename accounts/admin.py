@@ -10,7 +10,7 @@ class AccountAdmin(UserAdmin):
     add_form = AccountCreationForm
     list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff')
     fieldsets = (
-        (None, {'fields': ('username', 'password', 'email', 'first_name', 'last_name', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
+        (None, {'fields': ('username', 'password', 'email', 'first_name', 'last_name','bio','avatar', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('تاریخ ها', {'fields': ('last_login', 'date_joined')}),
     )
     add_fieldsets = (
