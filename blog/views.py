@@ -69,6 +69,13 @@ class PostDeleteView(View):
 class BlogTemplateView(TemplateView):
     template_name = "blog/main.html"
     
+class DashboardView(TemplateView):
+    template_name = "blog/dashboard.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["posts"] = Post.objects.filter(author=self.request.user)
+        return
 
 class PostsJsonListView(ListAPIView):
     queryset = Post.objects.filter(is_active=True)

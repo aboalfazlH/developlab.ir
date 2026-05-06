@@ -1,3 +1,4 @@
+{% load static %}
 <footer class="footer">
     <h4>لینک ها</h4>
     <ul class="list">
@@ -9,4 +10,5 @@
     <li class="list-1"><a href="{% url 'accounts:login' %}">ورود</a></li>
     {% endif %}
     </ul>
+    <img src="{% static 'qr/qr-code.png' %}" alt="" height="100" width="100">
 </footer>

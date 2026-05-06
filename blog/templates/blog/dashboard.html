@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+{% endblock title %}
+
+{% block meta %}
+{% endblock meta %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block content %}
+<aside>
+<ul>
+<li>تعداد پست های منتشر شده:{{ posts|length }}</li>
+<li>تعداد پست های تایید شده:</li>
+<li>مجموع بازدید پست ها:</li>
+<li>تعداد نظرات منتشر شده:</li>
+<li>مجموع امتیاز پست ها:</li>
+<li>تعداد نظرات تایید شده:</li>
+<li>مجموع امتیاز نظرات:</li>
+</ul>
+</aside>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
