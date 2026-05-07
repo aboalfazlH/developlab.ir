@@ -1,8 +1,9 @@
+/* Fonts */
 @font-face {
     font-family: Vazir;
     src: url(../font/Vazir.ttf);
 }
-
+/* Body */
 * {
     margin: 0;
     font-family: Vazir;
@@ -11,8 +12,19 @@
 body {
     overflow-x: hidden;
 }
+/* Header */
 .header {
     background-color: #0f0f10;
+}
+nav * {
+    list-style-type: none;
+    display: block;
+}
+nav ul ul,nav ul ul ul {
+    display: none;
+}
+nav ul:hover > ul,nav ul ul:hover > ul  {
+	display: block;
 }
 .list *{
     font-size: 20px;
@@ -20,11 +32,12 @@ body {
     text-decoration: none;
 }
 .main {
-    padding: 20px;
+    padding: 20px 20px 15vh 10px;
     background-color: #222529;
     color: #ffeb3b;
 }
 .footer {
+    padding: 10px 10px 15vh 10px;
     background-color:#0f0f10;
 }
 .footer * {

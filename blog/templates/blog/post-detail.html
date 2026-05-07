@@ -15,6 +15,11 @@
 <div>
 {{ post.description }}
 </div>
+{% if post.author == user %}
+<a href="{% url 'blog:post-update' post.id %}">ویرایش</a>
+<br>
+<a href="{% url 'blog:post-delete' post.id %}">حذف</a>
+{% endif %}
 {% endblock content %}
 
 {% block scripts %}

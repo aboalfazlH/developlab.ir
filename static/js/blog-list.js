@@ -78,7 +78,11 @@ async function fetchAndDisplayPosts(page = 1) {
 
             postElement.addEventListener('click', (e) => {
                 if (e.target.tagName !== 'A') {
-                    window.location.href = `${window.protocol}//${window.location.host}/${post.get_absolute_url}`;
+                    if (window.protocol) {
+                        window.location = `${window.protocol}//${window.location.host}/${post.get_absolute_url}`;
+                    } else {
+                        window.location = `http://${window.location.host}/${post.get_absolute_url}`;
+                    }
                 }
             });
 

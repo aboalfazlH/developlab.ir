@@ -7,6 +7,9 @@ from django.shortcuts import redirect,render
 from django.contrib.auth import login,logout,authenticate
 from rest_framework.generics import RetrieveAPIView
 from .serializer import AccountSerializer
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.conf import settings
+
 
 class RegisterView(CreateView):
     model = Account
@@ -23,10 +26,7 @@ class RegisterView(CreateView):
         """login user if form is valid"""
         response = super().form_valid(form)
 
-        login(
-            self.request,
-            self.object,
-        )
+        login(self.request,self.object)
         message.success(self.request,"ثبت نام با موفقیت انجام شد")
 
         return response
@@ -34,7 +34,7 @@ class RegisterView(CreateView):
 class LoginView(FormView):
     form_class = LoginForm
     template_name = "auth/login.html"
-    success_url = reverse_lazy("core:home")
+    success_url = settings.LOGIN_REDIRECT_URL
 
     def form_valid(self, form):
         username = form.cleaned_data.get("username")
@@ -76,6 +76,18 @@ class UserDetailView(DetailView):
     context_object_name = "profile"
     slug_field = "username"
     slug_url_kwarg = "username"
+
+
+class MyDetailView(LoginRequiredMixin,DetailView):
+    model = Account
+    template_name = "auth/profile.html"
+    context_object_name = "profile"
+    slug_field = "username"
+    slug_url_kwarg = "username"
+    
+    def get_object(self, queryset=None):
+        return self.request.user
+
 
 class UserUpdateView(UpdateView):
     model = Account
