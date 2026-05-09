@@ -28,7 +28,7 @@ function createTextItem(post) {
 
     (async () => {
         try {
-            const authorResponse = await fetch(`http://localhost:3000/accounts/api/users/${post.author}`);
+            const authorResponse = await fetch(`http://${window.location.host}/accounts/api/users/${post.author}`);
             if (!authorResponse.ok) throw new Error('Author fetch failed');
             const authorData = await authorResponse.json();
             const authorName = authorData.__str__ || 'نامشخص';

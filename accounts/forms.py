@@ -12,6 +12,22 @@ class AccountCreationForm(UserCreationForm):
             "first_name",
             "last_name",
         )
+        widgets = {
+                "username": forms.TextInput(attrs={"placeholder": "نام کاربری"}),
+                "email": forms.EmailInput(attrs={"placeholder": "ایمیل"}),
+                "first_name": forms.TextInput(attrs={"placeholder": "نام"}),
+                "last_name": forms.TextInput(attrs={"placeholder": "نام خانوادگی"}),
+                "password1": forms.PasswordInput(),
+                "password2": forms.PasswordInput(),
+            }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.help_text = None
+            field.label = ""
+        self.fields["password1"].widget.attrs.update({"placeholder": "رمز عبور"})
+        self.fields["password2"].widget.attrs.update({"placeholder": "تائید رمز عبور"})
 
 class AccountChangeForm(UserChangeForm):
     class Meta:

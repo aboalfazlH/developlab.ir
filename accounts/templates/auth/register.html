@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block title %}
 ثبت نام
@@ -8,15 +9,25 @@
 {% endblock meta %}
 
 {% block styles %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
 {% endblock styles %}
 
 {% block content %}
 <form action='' method='post'>
 {% csrf_token %}
 {{ form.as_p }}
-<button type='submit'>تائید</button>
+<ul id="errors">
+<li class="err" id="err-1">رمز عبور بیشتر از 8 کاراکتر است.</li>
+<li class="err" id="err-2">رمز عبور فقط عدد نیست</li>
+<li class="err" id="err-3">رمز عبور و تکرار ان شبیه هم هستند</li>
+<li class="err" id="err-4">نام کاربری قبلا مورد استفاده قرار نگرفته است</li>
+<li class="err" id="err-5">ایمیل قبلا مورد استفاده قرار نگرفته است</li>
+<li class="err" id="err-6">نام و نام خانوادگی تنظیم شده است</li>
+</ul>
+<button id='submit-btn' type='submit'>تایید</button>
 </form>
 {% endblock content %}
 
 {% block scripts %}
+<script src="{% static 'js/register-validate.js' %}"></script>
 {% endblock scripts %}

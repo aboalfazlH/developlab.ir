@@ -1,0 +1,25 @@
+form > * > * {
+    transition: none;
+}
+#errors {
+    list-style-type: none;
+    margin: 0;
+}
+
+#submit-btn:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+#submit-btn:not(:disabled) {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}

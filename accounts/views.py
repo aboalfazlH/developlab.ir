@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.contrib import messages as message
 from django.views.generic import *
 from .forms import AccountCreationForm,LoginForm,ProfileForm
@@ -9,6 +10,7 @@ from rest_framework.generics import RetrieveAPIView
 from .serializer import AccountSerializer
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.conf import settings
+from django.http import JsonResponse
 
 
 class RegisterView(CreateView):
@@ -111,3 +113,29 @@ class UserUpdateView(UpdateView):
 class UserRetrieveAPIView(RetrieveAPIView):
     queryset = Account.objects.filter(is_active=True).order_by("id")
     serializer_class = AccountSerializer
+
+
+class UsernameOrEmailExistedView(View):
+    def get(self, request, *args, **kwargs):
+        data = {}
+        username = request.GET.get("username")
+        email = request.GET.get("email")
+
+        if username:
+            if Account.objects.filter(username=username).exists():
+                data["username_is_exists"] = True
+            else:
+                data["username_is_exists"] = False
+        else:
+                data["username_is_exists"] = False
+
+
+        if email:
+            if Account.objects.filter(email=email).exists():
+                data["email_is_exists"] = True
+            else:
+                data["email_is_exists"] = False
+        else:
+            data["email_is_exists"] = False
+
+        return JsonResponse(data)
