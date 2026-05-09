@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 from django.urls import reverse_lazy
+import sys
 
 load_dotenv()
 
@@ -110,4 +111,69 @@ REST_FRAMEWORK = {
     ],
     'PAGE_SIZE': 10,
     'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+}
+
+
+class Exclude2xxFilter:
+    def filter(self, record):
+        msg = record.getMessage()
+        if '"] ' in msg:
+            status_code_str = msg.split('"] ')[1].split(' ')[0]
+            try:
+                status_code = int(status_code_str)
+                if 100 <= status_code < 300:
+                    return True
+            except ValueError:
+                pass
+        return False
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'exclude_2xx': {
+            '()': Exclude2xxFilter,
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s',
+            'style': '%',
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s',
+            'style': '%',
+        },
+        'access': {
+            'format': '"%(asctime)s %(levelname)s %(name)s %(message)s"',
+            'style': '%',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+            'stream': sys.stdout,
+        },
+        'access_log_handler': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'access',
+            'filters': ['exclude_2xx'],
+            'stream': sys.stdout,
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['access_log_handler'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
 }
