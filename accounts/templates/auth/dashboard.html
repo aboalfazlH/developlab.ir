@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+{% endblock title %}
+
+{% block meta %}
+{% endblock meta %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block content %}
+<a href="{% url 'accounts:profile-edit' account.username %}">تغییر پروفایل</a>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

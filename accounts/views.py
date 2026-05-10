@@ -90,6 +90,15 @@ class MyDetailView(LoginRequiredMixin,DetailView):
     def get_object(self, queryset=None):
         return self.request.user
 
+class DashboardView(LoginRequiredMixin,DetailView):
+    model = Account
+    template_name = "auth/dashboard.html"
+    context_object_name = "account"
+    slug_field = "username"
+    slug_url_kwarg = "username"
+    
+    def get_object(self, queryset=None):
+        return self.request.user
 
 class UserUpdateView(UpdateView):
     model = Account

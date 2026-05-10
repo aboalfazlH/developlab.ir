@@ -12,17 +12,19 @@
 {% endblock styles %}
 
 {% block content %}
+    
 <section class="main-detail">
     <img id="avatar" src="{{ profile.avatar.url }}" alt="" width="100" height="100">
     <h3 id="name">{{ profile.get_full_name }}</h3>
     <span id="username">@{{ profile.username }}</span>
     <div id="bio">
     <h4>بیوگرافی:</h4>
+    <span>{{ profile.bio }}</span>
     </div>
 </section>
 <section id="actions">
     {% if profile == user %}
-    <a href="#">داشبورد</a> <!-- TODO -->
+    <a href="{% url 'accounts:dashboard' %}">داشبورد</a>
     {% else %}
     <a href="#">دنبال کردن</a> <!-- TODO -->
     {% endif %}
