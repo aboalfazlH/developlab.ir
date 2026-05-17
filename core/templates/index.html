@@ -1,19 +1,25 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block title %}
-صفحه اصلی
 {% endblock title %}
 
 {% block meta %}
 {% endblock meta %}
 
 {% block styles %}
+<link rel="stylesheet" href="{% static 'css/blog-list.css' %}">
 {% endblock styles %}
 
 {% block content %}
 <h1>به آزمایشگاه توسعه خوش آمدی</h1>
 <p>توسعه بهتر در بیشتر حوزه ها</p>
+<section id="latest">
+<h1>لیست اخرین پست ها</h1>
+<section id="posts"></section>
+</section>
 {% endblock content %}
 
 {% block scripts %}
+<script src="{% static 'js/blog-list.js' %}"></script>
 {% endblock scripts %}

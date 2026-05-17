@@ -31,6 +31,39 @@ nav ul:hover > ul,nav ul ul:hover > ul  {
     color: #fcfcfc;
     text-decoration: none;
 }
+.messages {
+    list-style-type: none;
+}
+.message {
+    padding: 5px;
+}
+.messages {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+.messages li {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-family: sans-serif;
+}
+.success {
+    background-color: #246c35;
+    color: #303030;
+    border: 1px solid #155724;
+}
+.error {
+    background-color: #6e1018;
+    color: #000000;
+    border: 1px solid #610811;
+}
+
+.warning {
+    background-color: #ffc107;
+    color: #121212;
+    border: 1px solid #fbc02d;
+}
 .main {
     padding: 20px 20px 15vh 10px;
     background-color: #222529;
@@ -47,4 +80,9 @@ nav ul:hover > ul,nav ul ul:hover > ul  {
     padding: auto;
     color: red;
     text-align: center;
+}
+.btn-close {
+    font-size: large;
+    background-color:unset;
+    border: unset;
 }

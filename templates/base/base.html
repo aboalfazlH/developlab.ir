@@ -19,6 +19,7 @@
     </title>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
     {% block styles %}
 
     {% endblock styles %}
@@ -28,9 +29,9 @@
     {% include "base/header.html" %}
     <main class="main" id="start-contents">
         {% if messages %}
-        <ul>
+        <ul class="messages" id="msgs">
             {% for message in messages %}
-            <li>{{ message }}</li>
+            <li id="message-{{ forloop.counter }}" class="message {{ message.tags }}"><button class="btn-close" onclick="removeMsg(event)">X  </button>{{ message }}</li>
             {% endfor %}
         </ul>
         {% endif %}

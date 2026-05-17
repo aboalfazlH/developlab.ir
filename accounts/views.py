@@ -17,7 +17,7 @@ class RegisterView(CreateView):
     model = Account
     form_class = AccountCreationForm
     template_name = "auth/register.html"
-    success_url = reverse_lazy("accounts:login")
+    success_url = reverse_lazy("core:home")
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             message.warning(request, "شما اکنون احراز هویت کردید")

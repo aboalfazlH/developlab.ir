@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import *
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 
 class MainPageView(TemplateView):
