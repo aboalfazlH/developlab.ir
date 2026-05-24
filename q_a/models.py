@@ -2,14 +2,11 @@ from django.db import models
 from django.core.validators import FileExtensionValidator
 from . import allowed_extensions
 from accounts.models import Account
+from core import string_smaller
 
 
 VALIDATOR = FileExtensionValidator(allowed_extensions=allowed_extensions)
 
-def string_smaller(title,length=50):
-    if len(title) >= length:
-        return title[:length] + "..."
-    return title
 
 class Question(models.Model):
     title = models.CharField(verbose_name="عنوان",max_length=110)

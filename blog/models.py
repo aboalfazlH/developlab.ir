@@ -1,4 +1,6 @@
 from django.db import models
+from core.models import BaseComment
+from core import string_smaller
 
 
 class Post(models.Model):
@@ -21,6 +23,8 @@ class Post(models.Model):
     # DateTimes
     write_date = models.DateTimeField(verbose_name="تاریخ نوشتن",auto_now_add=True)
     update_date = models.DateTimeField(verbose_name="تاریخ آخرین تغییر",auto_now=True)
+
+    views = models.IntegerField(verbose_name="بازدید ها",default=0)
     
     class Meta:
         db_table = "posts"
@@ -33,5 +37,17 @@ class Post(models.Model):
 
         return reverse("blog:post-detail", kwargs={"pk": self.id})
 
+    
+    @classmethod
+    def get_total_views(cls, author):
+        total_views = cls.objects.filter(author=author).aggregate(models.Sum('views'))['views__sum']
+        return total_views or 0
+
     def __str__(self):
         return self.title
+
+class PostComment(BaseComment):
+    post = models.ForeignKey(Post,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return string_smaller(self.content)
