@@ -4,9 +4,11 @@ from dotenv import load_dotenv
 from django.urls import reverse_lazy
 import sys
 
-load_dotenv()
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(f"{BASE_DIR}/.env")
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
