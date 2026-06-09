@@ -13,4 +13,5 @@ urlpatterns = [
     path("post/<int:pk>/edit/",views.PostUpdateView.as_view(),name="post-update"),
     path("post/<int:id>/delete/",views.PostDeleteView.as_view(),name="post-delete"),
     path("api/post-list/",views.PostsJsonListView.as_view(),name="api-post-list"),
+    path("api/comment-list/",views.CommentsJsonListView.as_view(),name="api-post-list"),
 ]

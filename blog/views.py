@@ -1,13 +1,14 @@
 from django.shortcuts import render,redirect
 from django.views.generic import *
-from .models import Post
+from .models import Post,PostComment
 from .forms import PostForm
 from django.urls import reverse_lazy
 from django.contrib import messages as message
 from rest_framework.generics import ListAPIView,RetrieveUpdateDestroyAPIView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .serializers import PostSerializer
+from .serializers import PostSerializer,PostCommentSerializer
 from django.http import HttpRequest
+from rest_framework.pagination import PageNumberPagination
 
 
 class PostListView(ListView):
@@ -82,3 +83,7 @@ class DashboardView(TemplateView):
 class PostsJsonListView(ListAPIView):
     queryset = Post.objects.filter(is_active=True)
     serializer_class = PostSerializer
+
+class CommentsJsonListView(ListAPIView):
+    queryset = PostComment.objects.filter(is_active=True,is_verify=True)
+    serializer_class = PostCommentSerializer

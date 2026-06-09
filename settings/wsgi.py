@@ -1,7 +1,11 @@
 import os
+import sys
+
+path = '/home/aboalfazlH/developlab.ir'
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings.settings'
 
 from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.settings')
-
 application = get_wsgi_application()

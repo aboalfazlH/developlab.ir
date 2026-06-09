@@ -1,88 +1,46 @@
-/* Fonts */
 @font-face {
     font-family: Vazir;
     src: url(../font/Vazir.ttf);
 }
-/* Body */
+
 * {
-    margin: 0;
-    font-family: Vazir;
-    transition: all ease 2s;
-}   
+    font-family: Vazir, sans-serif;
+}
+
 body {
     overflow-x: hidden;
+    background-color: #222529 !important;
+    color: #f8f9fa;
 }
-/* Header */
+
 .header {
     background-color: #0f0f10;
 }
-nav * {
-    list-style-type: none;
-    display: block;
-}
-nav ul ul,nav ul ul ul {
-    display: none;
-}
-nav ul:hover > ul,nav ul ul:hover > ul  {
-	display: block;
-}
-.list *{
-    font-size: 20px;
-    color: #fcfcfc;
-    text-decoration: none;
-}
-.messages {
-    list-style-type: none;
-}
-.message {
-    padding: 5px;
-}
-.messages {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-.messages li {
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    font-family: sans-serif;
-}
-.success {
-    background-color: #246c35;
-    color: #303030;
-    border: 1px solid #155724;
-}
-.error {
-    background-color: #6e1018;
-    color: #000000;
-    border: 1px solid #610811;
+
+.footer {
+    background-color: #0f0f10;
+    color: #fff;
+    padding: 1rem;
 }
 
-.warning {
-    background-color: #ffc107;
-    color: #121212;
-    border: 1px solid #fbc02d;
-}
 .main {
     padding: 20px 20px 15vh 10px;
     background-color: #222529;
     color: #ffeb3b;
 }
-.footer {
-    padding: 10px 10px 15vh 10px;
-    background-color:#0f0f10;
+
+.messages {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-.footer * {
-    color: #ffffff;
+
+.alert {
+    font-family: Vazir, sans-serif;
+    border-radius: 10px;
 }
-.not-found {
-    padding: auto;
-    color: red;
-    text-align: center;
-}
-.btn-close {
-    font-size: large;
-    background-color:unset;
-    border: unset;
+
+/* اگر خواستی دکمه بستن هم تیره باشد */
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
 }

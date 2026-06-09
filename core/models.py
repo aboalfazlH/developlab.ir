@@ -3,7 +3,7 @@ from django.db import models
 
 class BaseComment(models.Model):
     user = models.ForeignKey("accounts.Account",on_delete=models.CASCADE,verbose_name="نویسنده نظر")
-    reply_to = models.ForeignKey("self",blank=True,null=True,on_delete=models.CASCADE)
+    reply_to = models.ForeignKey("self",blank=True,null=True,on_delete=models.CASCADE,verbose_name="پاسخ به")
     content = models.TextField(verbose_name="محتوا",max_length=2000)
     write_date = models.DateTimeField(verbose_name="تاریخ نوشته شدن",auto_now_add=True)
     old_content = models.TextField(verbose_name="محتوا قبل ویرایش",blank=True,null=True)

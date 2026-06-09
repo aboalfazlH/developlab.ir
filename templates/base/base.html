@@ -1,49 +1,40 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block meta %}
+    <title>آزمایشگاه توسعه | {% block title %}{% endblock title %}</title>
 
-    {% endblock meta %}
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
-    <title>
-        آزمایشگاه توسعه|
-        {% block title %}
-        {% endblock title %}
-    </title>
-
+    <link href="{% static 'bootstrap/bootstrap.rtl.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/forms.css' %}">
-    {% block styles %}
 
-    {% endblock styles %}
+    {% block styles %}{% endblock styles %}
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100 bg-dark text-light">
     {% include "base/header.html" %}
-    <main class="main" id="start-contents">
+
+    <main class="flex-grow-1 container py-4">
         {% if messages %}
-        <ul class="messages" id="msgs">
-            {% for message in messages %}
-            <li id="message-{{ forloop.counter }}" class="message {{ message.tags }}"><button class="btn-close" onclick="removeMsg(event)">X  </button>{{ message }}</li>
-            {% endfor %}
-        </ul>
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show mb-3" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
         {% endif %}
-        {% block content %}
 
-        {% endblock content %}
+        {% block content %}{% endblock content %}
     </main>
-    {% include "base/footer.html" %}
-    {% block scripts %}
 
-    {% endblock scripts %}
+    {% include "base/footer.html" %}
+
+    {% block scripts %}{% endblock scripts %}
+    <script src="{% static 'bootstrap/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 </body>
-
 </html>
