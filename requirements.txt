@@ -19,5 +19,5 @@ requests-toolbelt==1.0.0
 setuptools==82.0.1
 smmap==5.0.2
 urllib3==2.6.3
-windows-curses==2.4.2
-zeep==4.3.2
+windows-curses==2.4.2; sys_platform == "win32"
+zeep==4.3. 
